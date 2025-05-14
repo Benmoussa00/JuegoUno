@@ -1,0 +1,217 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Metodos {
+	
+	public void generarCartas(ArrayList<Cartas> cdisponibles) {
+		for (int i = 0; i <= 9; i++) {
+			Integer j = i;
+			String t = j.toString();
+			cdisponibles.add(new Cartas(t, "Rojo"));
+			cdisponibles.add(new Cartas(t, "Amarillo"));
+			cdisponibles.add(new Cartas(t, "Verde"));
+			cdisponibles.add(new Cartas(t, "Azul"));
+		}
+		
+		for (int i = 1; i <= 9; i++) {
+			Integer j = i;
+			String t = j.toString();
+			cdisponibles.add(new Cartas(t, "Rojo"));
+			cdisponibles.add(new Cartas(t, "Amarillo"));
+			cdisponibles.add(new Cartas(t, "Verde"));
+			cdisponibles.add(new Cartas(t, "Azul"));
+		}
+		
+		for (int i = 0; i < 2; i++) {
+			cdisponibles.add(new Cartas("Salto de turno", "Rojo"));
+			cdisponibles.add(new Cartas("Salto de turno", "Amarillo"));
+			cdisponibles.add(new Cartas("Salto de turno", "Verde"));
+			cdisponibles.add(new Cartas("Salto de turno", "Azul"));
+			cdisponibles.add(new Cartas("Chúpate 2", "Rojo"));
+			cdisponibles.add(new Cartas("Chúpate 2", "Amarillo"));
+			cdisponibles.add(new Cartas("Chúpate 2", "Verde"));
+			cdisponibles.add(new Cartas("Chúpate 2", "Azul"));
+		}
+		
+		for (int i = 0; i < 4; i++) {
+			cdisponibles.add(new Cartas("Comodín", "Multicolor"));
+			cdisponibles.add(new Cartas("Chúpate 4", "Multicolor"));
+		}
+	}
+	
+	public void prepararPartida(ArrayList<Cartas> jugador1, ArrayList<Cartas> jugador2, ArrayList<Cartas> cdisponibles,ArrayList<Cartas> cusadas) {
+		Random r = new Random();
+		boolean repartido = false;
+		
+		for (int i = 0; i < 7; i++) {
+			Cartas cmovimiento1 = cdisponibles.get(r.nextInt(cdisponibles.size()));
+			Cartas cmovimiento2 = cdisponibles.get(r.nextInt(cdisponibles.size()));
+			jugador1.add(cmovimiento1);
+			cdisponibles.remove(cmovimiento1);
+			jugador2.add(cmovimiento2);
+			cdisponibles.remove(cmovimiento2);
+		}
+		
+		Cartas cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+		
+		while (!repartido) {
+			cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+			
+			if (!cmovimiento.getTipo().equals("Salto de turno") && !cmovimiento.getTipo().equals("Chúpate 2") && !cmovimiento.getTipo().equals("Comodín") && !cmovimiento.getTipo().equals("Chúpate 4")) {
+				cusadas.add(cmovimiento);
+				cdisponibles.remove(cmovimiento);
+				repartido = true;
+			}
+		}
+	}
+	
+	public void jugarTurno(ArrayList<Cartas> jugador, ArrayList<Cartas> cusadas, ArrayList<Cartas> cdisponibles, String tipo, String color) {
+		Random r = new Random();
+		Scanner t = new Scanner(System.in);
+		boolean jugado = false;
+		
+//		do {
+			for (int i = 0; i < jugador.size(); i++) {
+				System.out.println(i + 1 + " " + jugador.get(i));
+			}
+
+			System.out.println("0 [Robar]");
+		
+		do {
+			int n = t.nextInt();
+			
+			if (n > 0 && n <= jugador.size()) {
+				if (jugador.get(n - 1).getTipo() == tipo || jugador.get(n - 1).getColor() == color || jugador.get(n - 1).getColor() == "Multicolor") {
+					cusadas.add(jugador.get(n - 1));
+					jugador.remove(n - 1);
+					System.out.println("Has usado: " + cusadas.getLast());
+					jugado = true;
+				}
+				else {
+					System.out.println("Acción no válida\n");
+				}
+			}
+			else if (n == 0) {
+				Cartas cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+				jugador.add(cmovimiento);
+				cdisponibles.remove(cmovimiento);
+				System.out.println(jugador.size() + " " + jugador.getLast());
+				System.out.println("0 [Robar]");
+			}
+			else {
+				System.out.println("Acción no válida\n");
+			}
+		}
+		while (!jugado);
+	}
+	
+	public void chupate2(ArrayList<Cartas> tira, ArrayList<Cartas> siguiente, ArrayList<Cartas> cdisponibles, int robar) {
+		Random r = new Random();
+		Cartas cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+		int noroba = 0;
+		
+		for (int i = 0; i < siguiente.size(); i++) {
+			if (siguiente.get(i).getTipo().equals("Chúpate 2")) {
+				noroba++;
+			}
+		}
+		
+		if (noroba == 0) {
+			for (int i = 0; i < robar; i++) {
+				cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+				siguiente.add(cmovimiento);
+				cdisponibles.remove(cmovimiento);
+			}
+		}
+	}
+	
+	public void chupate4(ArrayList<Cartas> tira, ArrayList<Cartas> siguiente, ArrayList<Cartas> cdisponibles, int robar) {
+		Random r = new Random();
+		Cartas cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+		
+		int noroba = 0;
+		
+		for (int i = 0; i < siguiente.size(); i++) {
+			if (siguiente.get(i).getTipo().equals("Chúpate 4")) {
+				noroba++;
+			}
+		}
+		
+		if (noroba == 0) {
+			for (int i = 0; i < robar; i++) {
+				cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+				siguiente.add(cmovimiento);
+				cdisponibles.remove(cmovimiento);
+			}
+		}
+	}
+	
+	public int elegirColor() {
+		Scanner t = new Scanner(System.in);
+		
+		System.out.println("¿A qué color quieres cambiar?");
+		System.out.println("1 [Rojo]");
+		System.out.println("2 [Amarillo]");
+		System.out.println("3 [Verde]");
+		System.out.println("4 [Azul]");
+		int n = 0;
+		
+		do {
+			n = t.nextInt();
+		}
+		while (n < 1 || n > 4);
+		
+		return n;		
+	}
+	
+	public String cambiarColor(int n) {
+		String c = "";
+		
+		if (n == 1) {
+			c = "Rojo";
+		}
+		else if (n == 2) {
+			c = "Amarillo";
+		}
+		else if (n == 3) {
+			c = "Verde";
+		}
+		else if (n == 4) {
+			c = "Azul";
+		}
+		
+		return c;
+	}
+	
+	public void barajar(ArrayList<Cartas> cusadas, ArrayList<Cartas> cdisponibles) {
+		Random r = new Random();
+		
+		int c = cusadas.size() - 1;
+		
+		for (int i = 0; i < cusadas.size() - 1; i++) {
+			int p = r.nextInt(0, c);
+			
+			do {
+				if (cusadas.get(p).getColor().isEmpty()) {
+					cdisponibles.add(cusadas.get(p));
+				}
+			}
+			while (!cusadas.get(p).getColor().isEmpty());
+		}
+	}
+	
+	public String ganador(ArrayList<Cartas> jugador1, ArrayList<Cartas> jugador2) {
+		String ganador = "";
+		
+		if (jugador1.size() == 0) {
+			ganador = "Jugador 1";
+		}
+		else if (jugador2.size() == 0) {
+			ganador = "Jugador 2";
+		}
+		
+		return "\nFin de la partida. Ganador: " + ganador;
+	}
+	
+}

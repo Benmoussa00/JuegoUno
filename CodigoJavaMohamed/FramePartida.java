@@ -176,3 +176,4 @@ public class FramePartida extends JFrame {
 		panel_1_1.add(label_2, BorderLayout.NORTH);
 	}
 }
+

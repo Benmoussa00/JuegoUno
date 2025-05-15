@@ -1,0 +1,4 @@
+Para el ranking y estadisticas tenemos que usar MongoDB, hay MongoDB en la nube o tenemos que hacerlo en local?
+
+Al iniciar sesión como guardamos los datos de inicio de sesión en local en la aplicacion para usarlos despues 
+por ejemplo para subir a la base de datos los resultados de las partidas o para cambiar el nombre de usuario?

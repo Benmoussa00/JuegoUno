@@ -1,4 +1,14 @@
+--Dudas--
+
 Para el ranking y estadisticas tenemos que usar MongoDB, hay MongoDB en la nube o tenemos que hacerlo en local?
 
 Al iniciar sesión como guardamos los datos de inicio de sesión en local en la aplicacion para usarlos despues 
 por ejemplo para subir a la base de datos los resultados de las partidas o para cambiar el nombre de usuario?
+
+
+--Cosas que añadir--
+
+Cuando podamos guardar los datos de login en local, en el frameperfil sale el nombre de usuario en el cuadro de texto automaticamente
+
+Poner los botones para volver atras en los frames de estadisticas, ranking, perfil, en estos solo hacer dispose en la ventana,
+en el de partida añadir boton de abandonar partida

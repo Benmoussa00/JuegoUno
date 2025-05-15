@@ -8,35 +8,35 @@ public class Metodos {
 		for (int i = 0; i <= 9; i++) {
 			Integer j = i;
 			String t = j.toString();
-			cdisponibles.add(new Cartas(t, "Rojo"));
-			cdisponibles.add(new Cartas(t, "Amarillo"));
-			cdisponibles.add(new Cartas(t, "Verde"));
-			cdisponibles.add(new Cartas(t, "Azul"));
+			cdisponibles.add(new Cartas(t, "🟥Rojo"));
+			cdisponibles.add(new Cartas(t, "🟨Amarillo"));
+			cdisponibles.add(new Cartas(t, "🟩Verde"));
+			cdisponibles.add(new Cartas(t, "🟦Azul"));
 		}
 		
 		for (int i = 1; i <= 9; i++) {
 			Integer j = i;
 			String t = j.toString();
-			cdisponibles.add(new Cartas(t, "Rojo"));
-			cdisponibles.add(new Cartas(t, "Amarillo"));
-			cdisponibles.add(new Cartas(t, "Verde"));
-			cdisponibles.add(new Cartas(t, "Azul"));
+			cdisponibles.add(new Cartas(t, "🟥Rojo"));
+			cdisponibles.add(new Cartas(t, "🟨Amarillo"));
+			cdisponibles.add(new Cartas(t, "🟩Verde"));
+			cdisponibles.add(new Cartas(t, "🟦Azul"));
 		}
 		
 		for (int i = 0; i < 2; i++) {
-			cdisponibles.add(new Cartas("Salto de turno", "Rojo"));
-			cdisponibles.add(new Cartas("Salto de turno", "Amarillo"));
-			cdisponibles.add(new Cartas("Salto de turno", "Verde"));
-			cdisponibles.add(new Cartas("Salto de turno", "Azul"));
-			cdisponibles.add(new Cartas("Chúpate 2", "Rojo"));
-			cdisponibles.add(new Cartas("Chúpate 2", "Amarillo"));
-			cdisponibles.add(new Cartas("Chúpate 2", "Verde"));
-			cdisponibles.add(new Cartas("Chúpate 2", "Azul"));
+			cdisponibles.add(new Cartas("Salto de turno", "🟥Rojo"));
+			cdisponibles.add(new Cartas("Salto de turno", "🟨Amarillo"));
+			cdisponibles.add(new Cartas("Salto de turno", "🟩Verde"));
+			cdisponibles.add(new Cartas("Salto de turno", "🟦Azul"));
+			cdisponibles.add(new Cartas("Chúpate 2", "🟥Rojo"));
+			cdisponibles.add(new Cartas("Chúpate 2", "🟨Amarillo"));
+			cdisponibles.add(new Cartas("Chúpate 2", "🟩Verde"));
+			cdisponibles.add(new Cartas("Chúpate 2", "🟦Azul"));
 		}
 		
 		for (int i = 0; i < 4; i++) {
-			cdisponibles.add(new Cartas("Comodín", "Multicolor"));
-			cdisponibles.add(new Cartas("Chúpate 4", "Multicolor"));
+			cdisponibles.add(new Cartas("Comodín", "🔲Multicolor"));
+			cdisponibles.add(new Cartas("Chúpate 4", "🔲Multicolor"));
 		}
 	}
 	
@@ -71,25 +71,24 @@ public class Metodos {
 		Scanner t = new Scanner(System.in);
 		boolean jugado = false;
 		
-//		do {
-			for (int i = 0; i < jugador.size(); i++) {
-				System.out.println(i + 1 + " " + jugador.get(i));
-			}
-
-			System.out.println("0 [Robar]");
+		for (int i = 0; i < jugador.size(); i++) {
+			System.out.println(i + 1 + " " + jugador.get(i));
+		}
+		
+		System.out.println("0 [Robar]");
 		
 		do {
 			int n = t.nextInt();
 			
 			if (n > 0 && n <= jugador.size()) {
-				if (jugador.get(n - 1).getTipo() == tipo || jugador.get(n - 1).getColor() == color || jugador.get(n - 1).getColor() == "Multicolor") {
+				if (jugador.get(n - 1).getTipo().equals(tipo) || jugador.get(n - 1).getColor().equals(color) || jugador.get(n - 1).getColor().equals("🔲Multicolor")) {
 					cusadas.add(jugador.get(n - 1));
 					jugador.remove(n - 1);
 					System.out.println("Has usado: " + cusadas.getLast());
 					jugado = true;
 				}
 				else {
-					System.out.println("Acción no válida\n");
+					System.out.println("Acción no válida");
 				}
 			}
 			else if (n == 0) {
@@ -151,14 +150,18 @@ public class Metodos {
 		Scanner t = new Scanner(System.in);
 		
 		System.out.println("¿A qué color quieres cambiar?");
-		System.out.println("1 [Rojo]");
-		System.out.println("2 [Amarillo]");
-		System.out.println("3 [Verde]");
-		System.out.println("4 [Azul]");
+		System.out.println("1 🟥[Rojo]");
+		System.out.println("2 🟨[Amarillo]");
+		System.out.println("3 🟩[Verde]");
+		System.out.println("4 🟦[Azul]");
 		int n = 0;
 		
 		do {
 			n = t.nextInt();
+			
+			if (n < 1 || n > 4) {
+				System.out.println("Acción no válida\n");
+			}
 		}
 		while (n < 1 || n > 4);
 		
@@ -169,16 +172,16 @@ public class Metodos {
 		String c = "";
 		
 		if (n == 1) {
-			c = "Rojo";
+			c = "🟥Rojo";
 		}
 		else if (n == 2) {
-			c = "Amarillo";
+			c = "🟨Amarillo";
 		}
 		else if (n == 3) {
-			c = "Verde";
+			c = "🟩Verde";
 		}
 		else if (n == 4) {
-			c = "Azul";
+			c = "🟦Azul";
 		}
 		
 		return c;
@@ -201,17 +204,17 @@ public class Metodos {
 		}
 	}
 	
-	public String ganador(ArrayList<Cartas> jugador1, ArrayList<Cartas> jugador2) {
+	public String ganador(ArrayList<Cartas> jugador1, ArrayList<Cartas> jugador2, String j1, String j2) {
 		String ganador = "";
 		
 		if (jugador1.size() == 0) {
-			ganador = "Jugador 1";
+			ganador = j1;
 		}
 		else if (jugador2.size() == 0) {
-			ganador = "Jugador 2";
+			ganador = j2;
 		}
 		
-		return "\nFin de la partida. Ganador: " + ganador;
+		return "FIN DE LA PARTIDA. GANADOR: " + ganador;
 	}
 	
 }

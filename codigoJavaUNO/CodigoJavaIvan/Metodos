@@ -108,20 +108,11 @@ public class Metodos {
 	public void chupate2(ArrayList<Cartas> tira, ArrayList<Cartas> siguiente, ArrayList<Cartas> cdisponibles, int robar) {
 		Random r = new Random();
 		Cartas cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
-		int noroba = 0;
 		
-		for (int i = 0; i < siguiente.size(); i++) {
-			if (siguiente.get(i).getTipo().equals("Chúpate 2")) {
-				noroba++;
-			}
-		}
-		
-		if (noroba == 0) {
-			for (int i = 0; i < robar; i++) {
-				cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
-				siguiente.add(cmovimiento);
-				cdisponibles.remove(cmovimiento);
-			}
+		for (int i = 0; i < robar; i++) {
+			cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+			siguiente.add(cmovimiento);
+			cdisponibles.remove(cmovimiento);
 		}
 	}
 	
@@ -129,20 +120,10 @@ public class Metodos {
 		Random r = new Random();
 		Cartas cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
 		
-		int noroba = 0;
-		
-		for (int i = 0; i < siguiente.size(); i++) {
-			if (siguiente.get(i).getTipo().equals("Chúpate 4")) {
-				noroba++;
-			}
-		}
-		
-		if (noroba == 0) {
-			for (int i = 0; i < robar; i++) {
-				cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
-				siguiente.add(cmovimiento);
-				cdisponibles.remove(cmovimiento);
-			}
+		for (int i = 0; i < robar; i++) {
+			cmovimiento = cdisponibles.get(r.nextInt(cdisponibles.size()));
+			siguiente.add(cmovimiento);
+			cdisponibles.remove(cmovimiento);
 		}
 	}
 	
@@ -214,7 +195,8 @@ public class Metodos {
 			ganador = j2;
 		}
 		
-		return "FIN DE LA PARTIDA. GANADOR: " + ganador;
+		return "¡Fin de la partida! 🏆Ganador: " + ganador + "🏆";
 	}
 	
 }
+

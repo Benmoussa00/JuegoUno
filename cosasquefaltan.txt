@@ -5,6 +5,8 @@ por ejemplo para subir a la base de datos los resultados de las partidas o para 
 
 Tenemos que guardar las cartas en la base de datos o no hace falta?
 
+DEBERIAMOS HACER UN HILO QUE SOLO USE SOCKETSSERVIDOR.JAVA PARA MANTENER SINCRONIZADO LA PARTIDA.JAVA DEL CLIENTE Y DEL SERVIDOR?
+
 
 --Cosas que añadir--
 

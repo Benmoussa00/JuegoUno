@@ -8,9 +8,12 @@ Tenemos que guardar las cartas en la base de datos o no hace falta?
 DEBERIAMOS HACER UN HILO QUE SOLO USE SOCKETSSERVIDOR.JAVA PARA MANTENER SINCRONIZADO LA PARTIDA.JAVA DEL CLIENTE Y DEL SERVIDOR?
 
 
+
 --Cosas que añadir--
 
 Cuando podamos guardar los datos de login en local, en el frameperfil sale el nombre de usuario en el cuadro de texto automaticamente
 
 Poner los botones para volver atras en los frames de estadisticas, ranking, perfil, en estos solo hacer dispose en la ventana,
 en el de partida añadir boton de abandonar partida
+
+Cuando se acaben las cartas en la pila de robo se tienen que pasar las cartas de la pila de descarte a la pila de robo, menos la ultima carta de la pila de descarte

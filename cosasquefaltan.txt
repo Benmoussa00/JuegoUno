@@ -17,3 +17,6 @@ Poner los botones para volver atras en los frames de estadisticas, ranking, perf
 en el de partida añadir boton de abandonar partida
 
 Cuando se acaben las cartas en la pila de robo se tienen que pasar las cartas de la pila de descarte a la pila de robo, menos la ultima carta de la pila de descarte
+
+
+Hola soy Mohamed y me voy a China a chupar pollas

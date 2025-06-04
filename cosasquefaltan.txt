@@ -13,5 +13,7 @@ en el de partida añadir boton de abandonar partida -POR HACER
 
 Cuando se acaben las cartas en la pila de robo se tienen que pasar las cartas de la pila de descarte a la pila de robo, menos la ultima carta de la pila de descarte -HECHO
 
+Hacer que no se pueda cambiar el tamaño de las ventanas -POR HACER
+
 
 Hola soy Mohamed y me voy a China a chupar pollas -POR HACER

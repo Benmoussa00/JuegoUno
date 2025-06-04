@@ -1,11 +1,6 @@
 --Dudas--
 
-Al iniciar sesión como guardamos los datos de inicio de sesión en local en la aplicacion para usarlos despues 
-por ejemplo para subir a la base de datos los resultados de las partidas o para cambiar el nombre de usuario?
 
-Tenemos que guardar las cartas en la base de datos o no hace falta?
-
-DEBERIAMOS HACER UN HILO QUE SOLO USE SOCKETSSERVIDOR.JAVA PARA MANTENER SINCRONIZADO LA PARTIDA.JAVA DEL CLIENTE Y DEL SERVIDOR?
 
 
 

@@ -6,12 +6,12 @@
 
 --Cosas que añadir--
 
-Cuando podamos guardar los datos de login en local, en el frameperfil sale el nombre de usuario en el cuadro de texto automaticamente
+Cuando podamos guardar los datos de login en local, en el frameperfil sale el nombre de usuario en el cuadro de texto automaticamente -HECHO
 
 Poner los botones para volver atras en los frames de estadisticas, ranking, perfil, en estos solo hacer dispose en la ventana,
-en el de partida añadir boton de abandonar partida
+en el de partida añadir boton de abandonar partida -POR HACER
 
-Cuando se acaben las cartas en la pila de robo se tienen que pasar las cartas de la pila de descarte a la pila de robo, menos la ultima carta de la pila de descarte
+Cuando se acaben las cartas en la pila de robo se tienen que pasar las cartas de la pila de descarte a la pila de robo, menos la ultima carta de la pila de descarte -HECHO
 
 
-Hola soy Mohamed y me voy a China a chupar pollas
+Hola soy Mohamed y me voy a China a chupar pollas -POR HACER

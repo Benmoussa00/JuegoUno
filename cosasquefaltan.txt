@@ -15,5 +15,6 @@ Cuando se acaben las cartas en la pila de robo se tienen que pasar las cartas de
 
 Hacer que no se pueda cambiar el tamaño de las ventanas -POR HACER
 
+Donde pone cliente en la partida cambiar por el username del oponente -POR HACER
 
 Hola soy Mohamed y me voy a China a chupar pollas -POR HACER
